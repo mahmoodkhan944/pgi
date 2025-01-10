@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ddb26f78.css",
+    "main.js": "/static/js/main.16f362a8.js",
+    "static/media/image052.png": "/static/media/image052.d8a73dc26bdb69301f24.png",
+    "static/media/psjivahomes.png": "/static/media/psjivahomes.160ea8fa0e949a8093ba.png",
+    "static/media/godrejroyalwoods.png": "/static/media/godrejroyalwoods.c1b325922f4f28e3124b.png",
+    "static/media/godrejaqua.png": "/static/media/godrejaqua.22287bd2cb2010c7f85c.png",
+    "static/media/vtppegasus.png": "/static/media/vtppegasus.e393a284d710312b3f08.png",
+    "static/media/dnrcasablanca.png": "/static/media/dnrcasablanca.5f89d1417c3aac86fad5.png",
+    "static/media/gangotritherise.png": "/static/media/gangotritherise.933d6697bd1b91aac2e8.png",
+    "static/media/godrejrejuve.png": "/static/media/godrejrejuve.e83ee135096468d2ee14.png",
+    "static/media/suyognavkaar.png": "/static/media/suyognavkaar.0b2f7b7fc692d91df2ce.png",
+    "static/media/nirmalaenclaves.png": "/static/media/nirmalaenclaves.74f4e484aa1f11d09bb3.png",
+    "index.html": "/index.html",
+    "main.ddb26f78.css.map": "/static/css/main.ddb26f78.css.map",
+    "main.16f362a8.js.map": "/static/js/main.16f362a8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ddb26f78.css",
+    "static/js/main.16f362a8.js"
+  ]
+}

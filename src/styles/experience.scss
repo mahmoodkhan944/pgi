@@ -1,0 +1,52 @@
+@import "colors";
+
+.home7 {
+  background-color: $fourth;
+  width: 100%;
+  height: auto;
+  display: flex;
+  > div1 {
+    width: 25%;
+    height: 50vh;
+    border-radius: 0px 0px 0px 0px;
+    background-color: $fourth;
+    padding: 8.5rem;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    > h1 {
+      font-size: 40px;
+      color: black;
+      text-transform: uppercase;
+      // border-bottom: 2px solid black;
+      text-decoration: underline;
+      padding: 0.5rem;
+      justify-content: center;
+    }
+  }
+  > div2 {
+    width: 80%;
+    height: auto;
+    padding: 2rem;
+    border-radius: 100px 0px 0px 100px;
+    background-color: black;
+    color: $first;
+    > table {
+      width: 100%;
+      border-collapse: collapse;
+      td,
+      th {
+        border: 1px solid #ffff;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.next-page {
+  text-align: right;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+}
