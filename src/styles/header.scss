@@ -1,0 +1,141 @@
+@import "colors";
+
+/* Sticky header — design same */
+.site-nav {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background-color: $fourth;
+  box-sizing: border-box;
+
+  .nav-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    gap: 1rem;
+  }
+
+  /* Logo Left */
+  .headerLeft {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    a {
+      display: inline-block;
+    }
+
+    img {
+      display: block;
+      height: clamp(36px, 6.5vw, 64px);
+      width: auto;
+      padding: 0.25rem;
+      cursor: pointer;
+    }
+  }
+
+  /* Desktop menu (visible on >760px) */
+  .nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+
+    a {
+      color: $dark;
+      text-decoration: none;
+      padding: 0.25rem 0.6rem;
+      font-size: 1rem;
+      white-space: nowrap;
+
+      &:hover,
+      &:focus {
+        color: $third;
+      }
+    }
+  }
+
+  /* Hamburger button (hidden on desktop) */
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0.25rem;
+    cursor: pointer;
+    width: 44px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+
+    span {
+      display: block;
+      height: 2px;
+      width: 22px;
+      margin: 4px 0;
+      background: $dark;
+      transition: transform 200ms ease, opacity 200ms ease;
+    }
+
+    &.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    &.open span:nth-child(2) {
+      opacity: 0;
+    }
+    &.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+  }
+}
+
+/* ---------------- Mobile Mode (<=760px) ---------------- */
+@media (max-width: 760px) {
+  .site-nav {
+    .nav-top {
+      padding: 0.5rem 0.75rem;
+    }
+
+    /* show hamburger */
+    .menu-toggle {
+      display: flex;
+    }
+
+    /* hide desktop inline menu */
+    .nav-links {
+      display: none;
+    }
+  }
+
+  /* Mobile dropdown panel */
+  .nav-links.open {
+    display: flex !important;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    background: $fourth;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+
+    a {
+      display: block;
+      width: 100%;
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+      color: $dark;
+      font-size: 0.95rem;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &:hover,
+      &:focus {
+        color: $third;
+      }
+    }
+  }
+}

@@ -1,0 +1,169 @@
+@import "colors";
+
+/* MOBILE-FIRST: keep things readable and avoid vh/absolute issues */
+.home {
+  width: 100%;
+  background-color: $fourth;
+  position: relative;
+  overflow: visible;
+  box-sizing: border-box;
+  padding: 1.25rem; /* small padding for mobile */
+  min-height: auto; /* let content determine height on small screens */
+
+  > main {
+    position: relative; /* avoid absolute on mobile */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+    justify-content: center;
+    z-index: 3;
+    box-sizing: border-box;
+
+    h1 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-size: clamp(2.2rem, 10vw, 9.375rem); /* scales up to desktop */
+      color: $fourth;
+      line-height: 1;
+      font-weight: 700;
+    }
+
+    em {
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-size: clamp(2.2rem, 10vw, 9.375rem);
+      color: #fff;
+    }
+
+    p {
+      margin-top: 0.75rem;
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-weight: 900;
+      font-size: clamp(0.9rem, 3.2vw, 1rem);
+      color: #fff;
+      text-transform: uppercase;
+      line-height: 1.6;
+    }
+  }
+
+  /* background image & subtle overlay (kept behind content) */
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: no-repeat center/cover url("../assets/image052.png");
+    filter: blur(0px);
+    border-radius: 40px; /* small radius on mobile */
+    transform-origin: center;
+    opacity: 1;
+  }
+
+  &::after {
+    /* subtle dark overlay for text readability */
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: rgba(6, 10, 20, 0.35);
+    border-radius: 40px;
+  }
+}
+
+/* SECOND BLOCK BELOW HERO - .home2
+   On mobile we reduce overlap effect so footer/next sections don't get pushed */
+.home2 {
+  width: 100%;
+  background-color: $fourth;
+  padding: 1.25rem 0; /* reduced from 205px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -24px; /* small visual overlap without causing overflow */
+  box-sizing: border-box;
+}
+
+/* ---------------- Tablet */
+@media (min-width: 480px) {
+  .home {
+    padding: 2rem;
+
+    > main {
+      padding: 1.5rem;
+
+      h1 {
+        font-size: clamp(3rem, 9.5vw, 9.375rem);
+      }
+
+      p {
+        font-size: clamp(0.95rem, 2.2vw, 1rem);
+      }
+    }
+
+    &::before, &::after {
+      border-radius: 60px;
+    }
+  }
+
+  .home2 {
+    padding: 2rem 0;
+    margin-top: -48px;
+  }
+}
+
+/* ---------------- Desktop: restore original large look */
+@media (min-width: 992px) {
+  .home {
+    min-height: 100vh; /* full viewport on desktop only */
+    padding: 3rem;
+    border-radius: 0 0 200px 200px; /* original visual */
+  }
+
+  .home > main {
+    position: absolute; /* on large screens we can safely use absolute */
+    inset: 0;
+    padding: 2rem;
+    align-items: flex-start;
+    justify-content: center;
+    z-index: 3;
+
+    h1 {
+      font-size: 9.375rem; /* ~150px as originally desired */
+      color: $fourth;
+    }
+    em {
+      font-size: 9.375rem;
+    }
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  .home::before {
+    border-radius: 100px 100px 100px 100px;
+    background-position: center right;
+    background-size: cover;
+  }
+
+  .home::after {
+    border-radius: 100px 100px 100px 100px;
+  }
+
+  .home2 {
+    padding: 205px 0; /* restore original visual overlap on desktop */
+    margin-top: -200px;
+  }
+}
+
+/* Safety fallback: ensure no section forces unnecessary vh on narrow screens */
+@media (max-width: 992px) {
+  .home, .home2 {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+}
+
+/* prevent overflow & long-line issues */
+.home, .home * { box-sizing: border-box; max-width: 100%; word-break: break-word; }

@@ -1,0 +1,177 @@
+@import "colors";
+
+/* NOTE: Your JSX uses className="home3" so we target .home3.
+   This keeps original design intent but makes it responsive (mobile-first). */
+
+.home3 {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: $fourth;
+  /* keep same visual on large screens but smaller on mobiles */
+  min-height: 60vh; /* mobile baseline */
+  border-radius: 0 0 40px 40px; /* reduced on mobile, enlarged on bigger screens via media queries */
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* content wrapper (matches your original > main behavior) */
+  > div {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 1rem;
+    box-sizing: border-box;
+
+    h1 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", Times, serif;
+      /* Original: 150px -- scale down on mobile, keep large on desktop */
+      font-size: clamp(2.2rem, 8vw, 9.375rem); /* 9.375rem ≈ 150px */
+      font-weight: 700;
+      color: $fourth;/* you used $fourth for heading earlier */
+      line-height: 1;
+      text-transform: uppercase;
+      text-decoration-line: underline;
+    }
+
+    em {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-size: clamp(2.2rem, 8vw, 9.375rem);
+      color: #fff;
+    }
+
+    p {
+      margin: 1rem 0 0 0;
+      /* Original: font: 900 1rem $text1; color: #fff; text-transform: uppercase; */
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-weight: 900;
+      font-size: clamp(0.9rem, 2.2vw, 1rem); /* stays ~1rem on larger, slightly smaller on tiny screens */
+      color: #fff;
+      text-transform: uppercase;
+      line-height: 1.6;
+    }
+  }
+
+  /* background image like original ::before */
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0; /* top:0; right:0; bottom:0; left:0; */
+    z-index: 1;
+    background-color: black;
+    filter: blur(0px);
+    border-radius: 100px 100px 100px 100px; /* preserved */
+    transform-origin: center;
+    opacity: 1;
+  }
+
+  /* keep an overlay for readable white text (like previous suggestion) but subtle so design same */
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: rgba(6, 10, 20, 0.45); /* subtle darken for contrast */
+  }
+}
+
+/* preserve .home2 styling but responsive */
+.home2 {
+  width: 100%;
+  background-color: $fourth;
+  padding: 2rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -80px;
+}
+
+/* --------- Larger screens: restore original big sizes and large border-radius ---------- */
+
+@media (min-width: 768px) {
+  .home3 {
+    min-height: 75vh;
+    padding: 3rem;
+    border-radius: 0 0 100px 100px;
+
+    > div {
+      padding: 1.5rem;
+
+      h1 {
+        /* allow bigger heading on tablet */
+        font-size: clamp(3rem, 7.5vw, 9.375rem);
+      }
+
+      p {
+        font-size: clamp(1rem, 1.4vw, 1rem);
+      }
+    }
+
+    &::before {
+      background-position: center right;
+      background-size: cover;
+      border-radius: 100px 100px 100px 100px;
+    }
+  }
+
+  .home2 {
+    margin-top: -120px;
+    padding: 3rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home3 {
+    min-height: 85vh;
+    padding: 4rem;
+    border-radius: 0 0 150px 150px;
+
+    > div {
+      padding: 2rem;
+
+      h1 {
+        /* near original 150px on desktop */
+        font-size: 9.375rem; /* 150px */
+      }
+
+      p {
+        font-size: 1rem;
+        max-width: 80%;
+      }
+    }
+
+    &::before {
+      filter: blur(0px);
+    }
+  }
+
+  .home2 {
+    margin-top: -160px;
+    padding: 4rem 3rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .home3 {
+    min-height: 100vh;
+    padding: 6rem;
+    border-radius: 0 0 200px 200px; /* EXACT original radius restored */
+    > div {
+      h1 {
+        font-size: 9.375rem; /* keep 150px */
+      }
+      p {
+        max-width: 70%;
+        font-size: 1rem;
+      }
+    }
+  }
+}

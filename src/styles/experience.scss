@@ -1,0 +1,134 @@
+@import "colors";
+
+/* Base mobile-first layout */
+.home7 {
+  background-color: $fourth;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  box-sizing: border-box;
+
+  > div1 {
+    width: 100%;
+    padding: 1.25rem;
+    background-color: $fourth;
+    border-radius: 0 40px 40px 0;
+    text-align: center;
+
+    > h1 {
+      font-size: clamp(1.8rem, 5vw, 2.4rem);
+      color: black;
+      text-transform: uppercase;
+      text-decoration: underline;
+      margin: 0;
+    }
+  }
+
+  > div2 {
+    width: 100%;
+    background: black;
+    color: $first;
+    border-radius: 20px;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+}
+
+/* ---------- MOBILE VIEW (NO SCROLL — TABLE → CARDS) ---------- */
+@media (max-width: 992px) {
+  /* Hide table */
+  .home7 table,
+  .home7 thead,
+  .home7 tbody,
+  .home7 tr,
+  .home7 th,
+  .home7 td {
+    display: block !important;
+  }
+
+  .home7 table {
+    border: none;
+  }
+
+  .home7 tr {
+    background: rgba(255, 255, 255, 0.06);
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .home7 td {
+    border: none !important;
+    padding: 0.35rem 0;
+    font-size: 1rem;
+    text-align: left !important;
+  }
+
+  /* Add labels dynamically for clarity */
+  .home7 td:nth-child(1)::before { content: "ID: "; font-weight: bold; }
+  .home7 td:nth-child(2)::before { content: "Customer: "; font-weight: bold; }
+  .home7 td:nth-child(3)::before { content: "Project: "; font-weight: bold; }
+  .home7 td:nth-child(4)::before { content: "Location: "; font-weight: bold; }
+  .home7 td:nth-child(5)::before { content: "Image: "; font-weight: bold; }
+
+  .home7 td img {
+    width: 120px;
+    height: auto;
+    margin-top: 0.4rem;
+    display: block;
+  }
+
+  /* Header row hidden */
+  .home7 thead {
+    display: none !important;
+  }
+
+  /* NEXT PAGE NUMBER */
+  .next-page {
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* ---------- DESKTOP (restore original table layout) ---------- */
+@media (min-width: 992px) {
+  .home7 {
+    flex-direction: row;
+    padding: 0;
+  }
+
+  > div1 {
+    width: 25%;
+    padding: 6rem 2rem;
+    height: 50vh;
+    border-radius: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  > div2 {
+    width: 75%;
+    padding: 2rem;
+    border-radius: 100px 0 0 100px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    border: 1px solid white;
+    padding: 0.8rem;
+    text-align: center;
+  }
+
+  td img {
+    width: 100px;
+  }
+}

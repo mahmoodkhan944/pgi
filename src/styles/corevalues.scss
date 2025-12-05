@@ -1,0 +1,318 @@
+@import "colors";
+
+/* ---------------------------------
+   CORE VALUES (mobile-first)
+----------------------------------*/
+.home5 {
+  width: 100%;
+  background-color: $fourth;
+  padding: 1.5rem 1rem;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  height: auto !important;
+  min-height: auto !important;
+}
+
+.content-box {
+  width: 100%;
+  background: black;
+  border-radius: 0 40px 40px 0;
+  padding: 1.5rem;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  text-align: center;
+}
+
+.content-box h1 {
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  text-transform: uppercase;
+  color: $first;
+  text-decoration: underline;
+  margin: 0;
+}
+
+/* Core Values Bullet Lines */
+.content-box .line {
+  color: $first;
+  width: 100%;
+  max-width: 40rem;
+  letter-spacing: 0.6px;
+  word-spacing: 2px;
+  line-height: 1.6;
+  font-style: italic;
+  font-weight: 100;
+  font-size: clamp(1rem, 2.6vw, 1.2rem);
+  text-align: left;
+  margin: 0;
+}
+
+/* ----------------------------
+   TABLET
+----------------------------*/
+@media (min-width: 600px) {
+  .content-box {
+    border-radius: 0 60px 60px 0;
+    padding: 2rem;
+  }
+
+  .content-box h1 {
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+  }
+
+  .content-box .line {
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+  }
+}
+
+/* ----------------------------
+   DESKTOP (Original Design)
+----------------------------*/
+@media (min-width: 992px) {
+  .home5 {
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+  }
+
+  .content-box {
+    width: 60%;
+    height: 90vh !important; /* original intent on desktop */
+    border-radius: 0 100px 100px 0;
+    padding: 2.5rem 3rem;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .content-box h1 {
+    width: 26rem;
+    font-size: 55px;
+    margin-bottom: 1rem;
+  }
+
+  .content-box .line {
+    width: 40rem;
+    padding: 0;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+    word-spacing: 5px;
+    line-height: 1.7;
+    font-size: 1.5rem;
+  }
+}
+
+/* ----------------------------
+   FOOTER (mobile-first, normal flow)
+----------------------------*/
+.footer {
+  width: 100%;
+  background-color: $fourth;
+  box-sizing: border-box;
+  padding: 1rem 1.25rem;
+  color: $dark;
+  position: relative; /* keep in flow */
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-family: "Josefin Sans", sans-serif;
+  margin: 0;
+}
+
+/* Left area */
+.footerLeft {
+  flex: 0 1 320px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.footerTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  color: $dark;
+}
+
+.footerTitle > h1 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: clamp(1.6rem, 3.6vw, 3.2rem);
+  margin: 0;
+  line-height: 1;
+  color: $dark;
+}
+
+.footerTitle > h1 > em {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: rgb(255, 255, 255);
+  font-style: italic;
+}
+
+.footerTitle > p {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: rgb(255, 255, 255);
+  font-size: clamp(0.82rem, 1.8vw, 0.95rem);
+}
+
+.name {
+  display: inline-block;
+  color: blue;
+  border-bottom: 1px solid rgba(255,255,255,0.9);
+  cursor: pointer;
+  margin-top: 0.25rem;
+  font-size: clamp(0.82rem, 1.8vw, 0.95rem);
+}
+.name:hover { color: white; }
+
+.footerCenter {
+  flex: 1 1 200px;
+  min-width: 0;
+}
+
+/* Right black block */
+.footerRight {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  padding: 0.75rem 1rem;
+  color: $fourth;
+  border-top: 2px solid $fourth;
+  border-bottom: 2px solid $fourth;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: clamp(0.9rem, 1.6vw, 1.05rem);
+  box-sizing: border-box;
+  border-radius: 6px;
+  min-width: 180px;
+}
+
+.footerItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.footerItem > span {
+  font-weight: 700;
+  color: $fourth;
+  letter-spacing: 0.6px;
+}
+
+.footerSocial {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+}
+
+.socialIcon {
+  font-size: clamp(22px, 3.6vw, 32px);
+  cursor: pointer;
+  transition: all 160ms ease;
+  color: rgb(255, 255, 255);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* hover colors */
+.facebook:hover { color: rgb(0, 0, 255); }
+.twitter:hover  { color: rgb(0, 172, 240); }
+.pinterest:hover{ color: rgb(255, 0, 0); }
+
+.instagram:hover {
+  background: radial-gradient(
+    circle at 30% 107%,
+    rgb(252, 244, 150) 0%,
+    rgb(253, 244, 150) 5%,
+    rgb(253, 88, 73) 45%,
+    rgb(214, 36, 157) 60%,
+    rgb(40, 89, 235) 90%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ensure no overflow */
+.home5, .content-box, .footer, .footer * { max-width: 100%; box-sizing: border-box; }
+
+/* ----------------------------
+   Mobile footer stacking
+----------------------------*/
+@media (max-width: 768px) {
+  .footer {
+    padding: 0.75rem 0.9rem;
+    gap: 0.6rem;
+    align-items: flex-start;
+  }
+
+  .footerLeft {
+    width: 100%;
+    flex: 1 1 100%;
+    padding: 0;
+  }
+
+  .footerTitle {
+    align-items: flex-start;
+  }
+
+  .footerCenter { display: none; }
+
+  .footerRight {
+    width: 100%;
+    flex: 1 1 100%;
+    padding: 0.75rem;
+    border-radius: 8px;
+    margin-top: 0;
+    justify-content: flex-start;
+  }
+
+  .footerItem {
+    width: 100%;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .footerSocial {
+    justify-content: flex-start;
+    width: auto;
+  }
+
+  section, .home, .home2, .home3, .home4, .home5 {
+    height: auto !important;
+    min-height: auto !important;
+  }
+
+  body {
+    margin-bottom: 0 !important;
+  }
+}
+
+/* ----------------------------
+   Desktop footer proportions
+----------------------------*/
+@media (min-width: 992px) {
+  .footer {
+    padding: 1rem 2rem;
+  }
+
+  .footerLeft { flex: 0 0 40%; }
+  .footerCenter { flex: 1 1 20%; }
+  .footerRight { flex: 0 0 28%; min-width: 260px; }
+}
+
+/* final safety: if an empty sibling after .home5 exists, hide it */
+.home5 + *:empty { display: none !important; height: 0 !important; margin: 0; padding: 0; visibility: hidden; }

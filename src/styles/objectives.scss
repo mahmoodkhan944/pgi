@@ -1,0 +1,144 @@
+@import "colors";
+
+/* Mobile-first responsive styles for .home6 */
+.home6 {
+  width: 100%;
+  background-color: $fourth;
+  display: flex;
+  flex-direction: column; /* mobile: stacked */
+  align-items: stretch;
+  box-sizing: border-box;
+  padding: 1.25rem;
+
+  /* inner content panel (black box) */
+  > div {
+    width: 100%;
+    height: auto; /* allow content to determine height on small screens */
+    background-color: rgb(0, 0, 0);
+    border-radius: 0 40px 40px 0; /* reduced radius on mobile */
+    padding: 1.25rem;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    text-align: center;
+
+    > h1 {
+      font-size: clamp(1.6rem, 6vw, 2.8rem);
+      color: $first;
+      text-transform: uppercase;
+      margin: 0;
+      text-decoration: underline;
+      padding: 0.35rem 0;
+      width: 100%;
+      max-width: 36rem;
+    }
+
+    > p {
+      color: $first;
+      width: 100%;
+      max-width: 48rem;
+      padding: 0 0.5rem;
+      letter-spacing: 0.6px;
+      word-spacing: 2px;
+      line-height: 1.6;
+      font-style: italic;
+      font-weight: 100;
+      font-size: clamp(0.95rem, 2.6vw, 1.15rem);
+      margin: 0;
+      box-sizing: border-box;
+      text-align: left;
+    }
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 600px) {
+  .home6 {
+    padding: 1.75rem;
+
+    > div {
+      border-radius: 0 60px 60px 0;
+      padding: 1.75rem 2rem;
+
+      > h1 {
+        font-size: clamp(2.2rem, 5vw, 3.4rem);
+        max-width: 30rem;
+      }
+
+      > p {
+        font-size: clamp(1rem, 2.1vw, 1.2rem);
+        padding: 0 0.75rem;
+      }
+    }
+  }
+}
+
+/* Desktop: restore original layout (black panel on right, 70% width) */
+@media (min-width: 992px) {
+  .home6 {
+    flex-direction: row;
+    justify-content: flex-end; /* keep black panel to the right */
+    padding: 0;
+    height: auto;
+    align-items: center;
+  }
+
+  .home6 > div {
+    width: 70%;                 /* original proportion */
+    height: 90vh;               /* preserved from original */
+    border-radius: 100px 0 0 100px;
+    padding: 2rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+    box-sizing: border-box;
+
+    > h1 {
+      font-size: 60px;          /* original size */
+      color: $first;
+      text-transform: uppercase;
+      width: 23rem;
+      margin: 0 0 1rem 0;
+      padding: 0.5rem 0;
+    }
+
+    > p {
+      font-size: 1.5rem;        /* original scale */
+      color: $first;
+      padding: 0;
+      width: 40rem;
+      letter-spacing: 1px;
+      word-spacing: 5px;
+      line-height: 1.7;
+      font-style: italic;
+      font-weight: 100;
+      margin: 0;
+    }
+  }
+}
+
+/* Prevent extra space below footer on narrower screens */
+@media (max-width: 992px) {
+  .home6 {
+    height: auto !important;
+    min-height: auto !important;
+  }
+
+  .home6 > div {
+    height: auto !important;
+    padding-bottom: 1rem;
+  }
+}
+
+/* safety: avoid overflow and long-line issues */
+.home6, .home6 * {
+  box-sizing: border-box;
+  max-width: 100%;
+  word-break: break-word;
+}
