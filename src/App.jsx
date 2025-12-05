@@ -20,6 +20,7 @@ import "./styles/contactinfo.scss";
 import "./styles/mediaquery.scss";
 import "./styles/login.scss";
 import "./styles/register.scss";
+import './responsive.css';
 
 function App() {
   return (
@@ -45,3 +46,4 @@ function App() {
 }
 
 export default App;
+
